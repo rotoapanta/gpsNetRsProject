@@ -1,28 +1,27 @@
 #!/bin/bash
+echo "Welcome $USER."
 
-# Define variables
-ENV_NAME="gps_netrs_env"
-CONDA_PATH="/home/rotoapanta/anaconda3/bin/conda"
-SCRIPT_PATH="/home/rotoapanta/Documentos/Proyects/gpsNetRsProject/"
+exec 1> >(logger -s -t $(basename $0)) 2>&1
 
+eval "$(/$HOME/anaconda3/bin/conda shell.bash hook)"
 
-PYTHON_SCRIPT="main.py"
-
-# Añadir la línea para configurar PYTHONPATH
-export PYTHONPATH="${PYTHONPATH}:${SCRIPT_PATH}"
-
-# Validar la existencia de rutas y archivos
-if [ ! -d "${SCRIPT_PATH}" ]; then
-    echo "El directorio del script no existe: ${SCRIPT_PATH}"
-    exit 1
+if [ $? != 0 ]
+    then
+        echo "Error ejecutar proyecto1: error carga conda: CRONTAB_SCRIPT_ERROR">&2
 fi
 
-if [ ! -f "${SCRIPT_PATH}/${PYTHON_SCRIPT}" ]; then
-    echo "El script Python no existe: ${SCRIPT_PATH}/${PYTHON_SCRIPT}"
-    exit 1
+conda activate gps_netrs_env
+
+if [ $? != 0 ]
+    then
+        echo "Error ejecutar proyecto1: error activar entorno CRONTAB_SCRIPT_ERROR">&2
 fi
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-# Ejecutar el script Python dentro del entorno Conda
-"${CONDA_PATH}" run -n "${ENV_NAME}" python "${SCRIPT_PATH}/${PYTHON_SCRIPT}" 2>&1
+cd $DIR
+python ./main.py
 
-
+if [ $? != 0 ]
+    then
+        echo "Error ejecutar proyecto1: error ejecutar pyth.py CRONTAB_SCRIPT_ERROR">&2
+fi
