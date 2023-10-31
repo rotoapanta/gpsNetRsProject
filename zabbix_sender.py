@@ -9,7 +9,6 @@ current_date = datetime.date.today().strftime("%Y-%m-%d")
 logs_folder = 'logs'
 if not os.path.exists(logs_folder):
     os.makedirs(logs_folder)
-
 # Nombre del archivo de registro con fecha
 log_file = os.path.join(logs_folder, f'{current_date}_gps_netrs.log')
 # Configura el sistema de registro de errores

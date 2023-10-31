@@ -24,6 +24,10 @@ logger = logging.getLogger(__name__)
 
 # Función para obtener el diccionario IP - Hostname
 def get_ip_hostname_dict():
+    """
+
+    :return:
+    """
     config = configparser.ConfigParser()
     config.read('config.ini')
     zabbix_url = config.get('zabbix', 'zabbix_url')

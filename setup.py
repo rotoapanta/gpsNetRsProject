@@ -8,15 +8,16 @@ setup(
     version="1.0.0",
     author='Roberto Toapanta',
     author_email='robertocarlos.toapanta@gmail.com',
-    description="Proyecto para monitorear el estado de salud de GPS",
+    description="Proyecto para monitorear el estado de salud de los receptores GPS NetRS",
     long_description='Obtiene los valores de voltaje, temperatura, numero de serie',
     long_description_content_type="text/markdown",
-    url="https://github.com/tuusuario/gpsNetRsProject",
+    url="https://github.com/rotoapanta/gpsNetRsProject.git",
     packages=find_packages(),
     install_requires=[
-        "py-zabbix",  # Lista tus dependencias aquí
-        "ping3",
-        "requests"
+        "py-zabbix==1.1.7",  # Lista tus dependencias aquí
+        "requests~=2.31.0",
+        "brotlipy==0.7.0",
+        "setuptools~=68.0.0"
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
