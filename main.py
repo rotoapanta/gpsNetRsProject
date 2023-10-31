@@ -3,15 +3,19 @@ import logging
 import os
 from api.api_zbx_processing import get_ip_hostname_dict, get_values
 from zabbix_sender import send_data_to_zabbix
+import datetime
 
 
 def main():
+    # Obtiene la fecha actual en el formato deseado (Año-Mes-Día)
+    fecha_actual = datetime.date.today().strftime("%Y-%m-%d")
     # Obtiene la ruta completa al archivo de registro 'error.log' en la carpeta 'logs'
     logs_folder = 'logs'
     if not os.path.exists(logs_folder):
         os.makedirs(logs_folder)
 
-    log_file = os.path.join(logs_folder, 'error.log')
+    # Nombre del archivo de registro con fecha
+    log_file = os.path.join(logs_folder, f'{fecha_actual}_gps_netrs.log')
     # Configura el sistema de registro de errores
     logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %('
                                                                        'message)s')

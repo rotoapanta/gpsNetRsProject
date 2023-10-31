@@ -1,22 +1,24 @@
 import logging
 import os
-
 from pyzabbix import ZabbixMetric, ZabbixSender
+import datetime
 
+# Obtiene la fecha actual en el formato deseado (Año-Mes-Día)
+current_date = datetime.date.today().strftime("%Y-%m-%d")
 # Obtiene la ruta completa al archivo de registro 'error.log' en la carpeta 'logs'
 logs_folder = 'logs'
 if not os.path.exists(logs_folder):
     os.makedirs(logs_folder)
 
-log_file = os.path.join(logs_folder, 'error.log')
+# Nombre del archivo de registro con fecha
+log_file = os.path.join(logs_folder, f'{current_date}_gps_netrs.log')
 # Configura el sistema de registro de errores
 logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %('
                                                                    'message)s')
 logger = logging.getLogger(__name__)
 
 
-# Obtener las métricas a enviar a Zabbix
-# Enviar datos a Zabbix
+# Enviar las métricas a Zabbix
 def send_data_to_zabbix(zabbix_server, zabbix_port, all_data):
     metrics = []
 
