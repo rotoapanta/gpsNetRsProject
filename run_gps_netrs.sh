@@ -4,7 +4,7 @@
 ENV_NAME="gps_netrs_env"
 ENV_PATH="/home/rotoapanta/env/"
 CONDA_PREFIX="/home/rotoapanta/anaconda3/"
-SCRIPT_PATH="/home/rotoapanta/Documentos/Proyects/gpsNetRsProject"
+SCRIPT_PATH="/home/rotoapanta/Documentos/Proyects/gpsNetRsProject/"
 PYTHON_SCRIPT="main.py"
 CONFIG_FILE="config.ini"
 
@@ -22,6 +22,11 @@ if [ $? != 0 ]; then
     exit 1
 fi
 
+# Crear el entorno Conda si no existe
+if ! conda env list | grep -q "${ENV_NAME}"; then
+    conda create --name ${ENV_NAME} python=3.10
+fi
+
 # Activar el entorno Conda
 conda activate ${ENV_NAME}
 
@@ -29,6 +34,9 @@ if [ $? != 0 ]; then
     echo "Error al ejecutar gpsNetRsProject: error al activar el entorno: CRONTAB_SCRIPT_ERROR" >&2
     exit 1
 fi
+
+# Instalar todas las dependencias desde el archivo 'requirements.txt'
+pip install -r ${SCRIPT_PATH}/requirements.txt
 
 # Validar la existencia de rutas y archivos
 if [ ! -d "${SCRIPT_PATH}" ]; then

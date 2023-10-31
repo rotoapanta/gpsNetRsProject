@@ -1,17 +1,16 @@
 import re
 import requests
 from pyzabbix.api import ZabbixAPI
-from ping3 import ping
 import configparser
 import logging
 import os
+import subprocess
 
 # Configura el registro de errores en un archivo llamado 'error.log' en la carpeta 'logs'
 logs_folder = 'logs'
 if not os.path.exists(logs_folder):
     os.makedirs(logs_folder)
 
-#log_file = os.path.join(logs_folder, 'error.log')
 log_file = '/home/rotoapanta/Documentos/Proyects/gpsNetRsProject/logs/error.log'
 logging.basicConfig(filename=log_file, level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -20,8 +19,14 @@ logger = logging.getLogger(__name__)
 
 # Función para verificar la conectividad de un host
 def check_host_connectivity(ip):
-    response_time = ping(ip)
-    return response_time is not None, response_time
+    try:
+        result = subprocess.run(["ping", "-c", "1", ip], capture_output=True, text=True, check=True)
+        if result.returncode == 0:
+            return True, result.stdout
+        else:
+            return False, result.stderr
+    except subprocess.CalledProcessError as e:
+        return False, str(e)
 
 
 # Función para obtener el diccionario IP - Hostname
