@@ -1,8 +1,8 @@
 import configparser
 import logging
 import os
-from api.api_zbx_processing import get_ip_hostname_dict, obtener_valores
-from zabbix_sender import enviar_datos_zabbix
+from api.api_zbx_processing import get_ip_hostname_dict, get_values
+from zabbix_sender import send_data_to_zabbix
 
 
 def main():
@@ -30,7 +30,7 @@ def main():
 
         for ip, hostname in ip_hostname_dict.items():
             try:
-                data = obtener_valores(ip, arguments)
+                data = get_values(ip, arguments)
                 if data:
                     all_data[hostname] = data
                 else:
@@ -47,7 +47,7 @@ def main():
 
         try:
             # Enviar datos a Zabbix utilizando el script "zabbix.py"
-            enviar_datos_zabbix(zabbix_server, zabbix_port, all_data)
+            send_data_to_zabbix(zabbix_server, zabbix_port, all_data)
         except Exception as e:
             logger.error(f"Error al enviar datos a Zabbix: {e}")
     except Exception as e:

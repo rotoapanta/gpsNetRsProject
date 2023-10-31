@@ -71,7 +71,7 @@ def get_ip_hostname_dict():
 
 
 # Función para obtener valores de un host
-def obtener_valores(ip, arguments):
+def get_values(ip, arguments):
     results = {}  # Define 'results' antes del bloque 'try'
     try:
         url_base = f'http://{ip}/prog/Show?'

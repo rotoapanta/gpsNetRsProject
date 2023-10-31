@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 # Obtener las métricas a enviar a Zabbix
 # Enviar datos a Zabbix
-def enviar_datos_zabbix(zabbix_server, zabbix_port, all_data):
+def send_data_to_zabbix(zabbix_server, zabbix_port, all_data):
     metrics = []
 
     for host, data in all_data.items():
