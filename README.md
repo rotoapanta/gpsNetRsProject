@@ -1,7 +1,28 @@
+# <p align="center">GPS NetRS with Zabbix
+
+<p align="center">This project aims to monitor the health status of GPS NetRS receivers using Zabbix.</p>
+
+##
+
+![Python 3.10](https://img.shields.io/badge/Python-3.10-blue.svg)
+[![GitHub issues](https://img.shields.io/github/issues/rotoapanta/botZabbixPackage)](https://github.com/rotoapanta/botZabbixPackage/issues)
+![GitHub repo size](https://img.shields.io/github/repo-size/rotoapanta/botZabbixPackage)
+![GitHub last commit](https://img.shields.io/github/last-commit/rotoapanta/botZabbixPackage)
+![GitHub commit merge status](https://img.shields.io/github/commit-status/rotoapanta/botZabbixPackage/master/d8b7bfe)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
+![Discord](https://img.shields.io/discord/996422496842694726)
+[![Discord Invite](https://img.shields.io/badge/discord-join%20now-green)](https://discord.gg/Gs9b3HFd)
+![GitHub forks](https://img.shields.io/github/forks/rotoapanta/botZabbixPackage?style=social)
+[![Zabbix](https://img.shields.io/badge/Zabbix-4.6-orange)](https://www.zabbix.com/)
+[![Telegram](https://img.shields.io/badge/Telegram-Bot-blue)](https://core.telegram.org/bots)
+[![Python](https://img.shields.io/badge/Python-3.11-brightgreen)](https://www.python.org/)
+[![Docker](https://img.shields.io/badge/Docker-No-brightgreen)](https://www.docker.com/)
+- 
 # Contents
 
 - [Getting started](#getting-started)
   - [Getting started with Zabbix and Telegram](#getting-started-with-zabbix-and-telegram)
+  - [Features](#features)
   - [Requirements](#requirements)
   - [Components Description](#components-description)
 - [Installation](#installation)
@@ -23,18 +44,26 @@
 
 ### Getting started with Zabbix and Telegram
 
-- An example to show how to integrate Zabbix with Telegram.
-- Implement notifications in Zabbix using Telegram.
-- [![Zabbix](https://img.shields.io/badge/Zabbix-5.2-orange)](https://www.zabbix.com/)
-- [![Telegram](https://img.shields.io/badge/Telegram-Bot-blue)](https://core.telegram.org/bots)
-- [![Python](https://img.shields.io/badge/Python-3.9-brightgreen)](https://www.python.org/)
+GPS NetRS receivers are used in various applications, including geodetic surveying, GNSS data collection, and more. Monitoring their health and performance is essential to ensure the reliability of data they provide. This project leverages Zabbix, a popular monitoring solution, to help you keep an eye on your GPS NetRS devices.
+
+Let’s get started!
+
+### Features
+
+- Retrieve various metrics from GPS NetRS devices.
+- Send collected data to Zabbix for analysis.
+- Easily schedule monitoring tasks using `crontab`.
 
 ### Requirements
 
-- Ensure you have the following installed:
-  - [![Zabbix](https://img.shields.io/badge/Zabbix-5.2-orange)](https://www.zabbix.com/)
-  - [![Telegram](https://img.shields.io/badge/Telegram-Bot-blue)](https://core.telegram.org/bots)
-  - [![Python](https://img.shields.io/badge/Python-3.9-brightgreen)](https://www.python.org/)
+Before you get started, make sure you have the following:
+
+- Python 3.11 or higher installed on your system.
+- [Anaconda](https://www.anaconda.com/) for creating and managing Conda environments.
+- A Zabbix server for storing and analyzing the collected data.
+- Basic knowledge of using `crontab` for scheduling tasks.
+- GPS NetRS devices
+- Computer running Anaconda on Windows, Linux or macOS (in this case macOS is used).
 
 ### Components Description
 
@@ -44,8 +73,30 @@
 
 ## Installation
 
-- Provide step-by-step installation instructions for your project.
-- [![Docker](https://img.shields.io/badge/Docker-Yes-brightgreen)](https://www.docker.com/)
+1. Clone the repository to your local machine:
+
+  ```bash
+   git clone https://github.com/rotoapanta/gpsNetRsProject.git
+  ```
+2. To automate the monitoring process, you can use crontab to schedule the execution of the script at specific intervals. The provided run_gps_netrs.sh shell script helps you set up the environment and run the project under cron. 
+
+Here's how to configure and use crontab with the project:
+
+  a. Open the crontab configuration for your user by running the following command
+
+  ```bash
+   crontab -e
+  ```
+ b. Add an entry to schedule the script to run at regular intervals. For example, to run the script every 10 minutes, add the following line:
+  
+  ```bash
+   */10 * * * * bash /path/to/run_gps_netrs.sh >> /path/to/logs/gps_netrs.log 2>&1
+  ```
+Be sure to replace /path/to with the actual paths to the run_gps_netrs.sh script and the desired log file.
+
+Save and exit the crontab editor.
+
+The script will now run automatically at the specified intervals and log its output to the specified log file.
 
 ## Configuration
 
@@ -95,8 +146,7 @@
 
 ## Authors
 
-- [![Author 1](https://img.shields.io/badge/Author%201-Name-brightgreen)](link_to_author1)
-- [![Author 2](https://img.shields.io/badge/Author%202-Name-brightgreen)](link_to_author2)
+- [![Author 1](https://img.shields.io/badge/Roberto%20-Toapanta-brightgreen)](link_to_author1)
 
 ## More Info
 
