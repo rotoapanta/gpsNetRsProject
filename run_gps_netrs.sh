@@ -8,13 +8,13 @@ SCRIPT_PATH="/home/rotoapanta/Documentos/Proyects/gpsNetRsProject/"
 PYTHON_SCRIPT="main.py"
 CONFIG_FILE="config.ini"
 
-# Mensaje de bienvenida
+# Welcome message
 echo "Welcome ${USER}."
 
-# Redirigir la salida estándar y de error al registro
+# Redirect standard output and error to the log
 exec 1> >(logger -s -t $(basename $0)) 2>&1
 
-# Configurar el entorno Conda
+# Configure Conda environment
 eval "$(${CONDA_PREFIX}/bin/conda shell.bash hook)"
 
 if [ $? != 0 ]; then
@@ -22,12 +22,12 @@ if [ $? != 0 ]; then
     exit 1
 fi
 
-# Crear el entorno Conda si no existe
+# Create Conda environment if it doesn't exist
 if ! conda env list | grep -q "${ENV_NAME}"; then
     conda create --name ${ENV_NAME} python=3.10
 fi
 
-# Activar el entorno Conda
+# Activate Conda environment
 conda activate ${ENV_NAME}
 
 if [ $? != 0 ]; then
@@ -35,10 +35,10 @@ if [ $? != 0 ]; then
     exit 1
 fi
 
-# Instalar todas las dependencias desde el archivo 'requirements.txt'
+# Install all dependencies from 'requirements.txt'
 pip install -r ${SCRIPT_PATH}/requirements.txt
 
-# Validar la existencia de rutas y archivos
+# Validate the existence of paths and files
 if [ ! -d "${SCRIPT_PATH}" ]; then
     echo "El directorio del script no existe: ${SCRIPT_PATH}"
     exit 1
@@ -54,10 +54,10 @@ if [ ! -f "${SCRIPT_PATH}/${CONFIG_FILE}" ]; then
     exit 1
 fi
 
-# Navegar hacia el directorio del script Python
+# Navigate to the Python script directory
 cd ${SCRIPT_PATH}
 
-# Ejecutar el script Python con el archivo de configuración y redirigir la salida estándar a la salida de error
+# Run the Python script with the configuration file and redirect standard output to standard error
 python ./${PYTHON_SCRIPT}
 
 if [ $? != 0 ]; then

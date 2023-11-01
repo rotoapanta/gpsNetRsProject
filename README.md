@@ -6,8 +6,8 @@
 
 [![Python](https://img.shields.io/badge/Python-3.11-brightgreen)](https://www.python.org/)
 [![Zabbix](https://img.shields.io/badge/Zabbix-4.6-orange)](https://www.zabbix.com/)
-[![GitHub issues](https://img.shields.io/github/issues/rotoapanta/botZabbixPackage)](https://github.com/rotoapanta/botZabbixPackage/issues)
-![GitHub repo size](https://img.shields.io/github/repo-size/rotoapanta/botZabbixPackage)
+[![GitHub issues](https://img.shields.io/github/issues/rotoapanta/gpsNetRsProject/issues)](https://github.com/rotoapanta/gpsNetRsProject/issues)
+![GitHub repo size](https://img.shields.io/github/repo-size/rotoapanta/gpsNetRsProject)
 ![GitHub last commit](https://img.shields.io/github/last-commit/rotoapanta/botZabbixPackage)
 ![GitHub commit merge status](https://img.shields.io/github/commit-status/rotoapanta/botZabbixPackage/master/d8b7bfe)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
