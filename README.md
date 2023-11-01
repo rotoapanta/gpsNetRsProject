@@ -6,7 +6,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.11-brightgreen)](https://www.python.org/)
 [![Zabbix](https://img.shields.io/badge/Zabbix-4.6-orange)](https://www.zabbix.com/)
-[![GitHub issues](https://img.shields.io/github/issues/rotoapanta/gpsNetRsProject/issues)](https://github.com/rotoapanta/gpsNetRsProject/issues)
+![GitHub issues](https://img.shields.io/github/issues/rotoapanta/gpsNetRsProject)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rotoapanta/gpsNetRsProject)
 ![GitHub last commit](https://img.shields.io/github/last-commit/rotoapanta/gpsNetRsProject)
 ![GitHub commit merge status](https://img.shields.io/github/commit-status/rotoapanta/gpsNetRsProject/master/d1e8036)
