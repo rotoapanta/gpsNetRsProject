@@ -3,22 +3,21 @@ import logging
 import os
 import datetime
 
-# Obtiene la fecha actual en el formato deseado (Año-Mes-Día)
+# Get the current date in the desired format (Year-Month-Day)
 current_date = datetime.date.today().strftime("%Y-%m-%d")
-# Obtiene la ruta completa al archivo de registro 'error.log' en la carpeta 'logs'
+# Get the full path to the '_gps_netrs.log' file in the 'logs' folder
 logs_folder = 'logs'
 if not os.path.exists(logs_folder):
     os.makedirs(logs_folder)
 
-# Nombre del archivo de registro con fecha
+# File name of the log file with the date
 log_file = os.path.join(logs_folder, f'{current_date}_gps_netrs.log')
-# Configura el sistema de registro de errores
+# Configure the error logging system
 logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %('
                                                                    'message)s')
 logger = logging.getLogger(__name__)
 
 
-# Función para verificar la conectividad de un host
 def check_host_connectivity(ip):
     """
     The 'check_host_connectivity' function checks the connectivity to a specified IP address using the 'ping' command.

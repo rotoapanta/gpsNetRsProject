@@ -25,28 +25,29 @@ def main():
     :raises: subprocess.CalledProcessError (if command execution fails), Exception (if any other error occurs during
     execution)
     """
-    # Obtiene la fecha actual en el formato deseado (Año-Mes-Día)
-    fecha_actual = datetime.date.today().strftime("%Y-%m-%d")
-    # Obtiene la ruta completa al archivo de registro 'error.log' en la carpeta 'logs'
+    # Get the current date in the desired format (Year-Month-Day)
+    current_date = datetime.date.today().strftime("%Y-%m-%d")
+    # Get the full path to the '_gps_netrs.log' file in the 'logs' folder
     logs_folder = 'logs'
     if not os.path.exists(logs_folder):
         os.makedirs(logs_folder)
-    # Nombre del archivo de registro con fecha
-    log_file = os.path.join(logs_folder, f'{fecha_actual}_gps_netrs.log')
-    # Configura el sistema de registro de errores
+
+    # File name of the log file with the date
+    log_file = os.path.join(logs_folder, f'{current_date}_gps_netrs.log')
+    # Configure the error logging system
     logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %('
                                                                        'message)s')
     logger = logging.getLogger(__name__)
 
-    logger.info("Inicio del programa")  # Agrega un mensaje de inicio
+    logger.info("Inicio del programa")  # Add a startup message
     try:
-        # Llamada a la función para obtener el diccionario IP - Hostname
+        # Call the function to obtain the IP - Hostname dictionary
         ip_hostname_dict = get_ip_hostname_dict()
 
-        # Definición de los argumentos comunes como cadena
+        # Define common arguments as a string
         arguments = ["SystemName", "SerialNumber", "Voltage&input=2", "Temperature"]
 
-        # Crear un diccionario para almacenar los datos de cada host
+        # Create a dictionary to store data for each host
         all_data = {}
 
         for ip, hostname in ip_hostname_dict.items():
@@ -59,7 +60,7 @@ def main():
             except Exception as e:
                 logger.error(f"Error al obtener valores para {hostname} ({ip}): {e}")
 
-        # Leer la configuración de Zabbix desde config.ini
+        # Read Zabbix configuration from config.ini
         config = configparser.ConfigParser()
         config.read('config.ini')
 
@@ -67,14 +68,14 @@ def main():
         zabbix_port = int(config.get('zabbix', 'zabbix_port'))
 
         try:
-            # Enviar datos a Zabbix utilizando el script "zabbix.py"
+            # Send data to Zabbix using the "zabbix.py" script
             send_data_to_zabbix(zabbix_server, zabbix_port, all_data)
         except Exception as e:
             logger.error(f"Error al enviar datos a Zabbix: {e}")
     except Exception as e:
         logger.error(f"Error en la ejecución principal: {e}")
     finally:
-        logger.info("Fin del programa")  # Agrega un mensaje de finalización
+        logger.info("Fin del programa")  # Add a completion message
 
 
 if __name__ == "__main__":

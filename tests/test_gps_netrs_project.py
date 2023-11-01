@@ -23,18 +23,18 @@ class TestGPSNetRsProject(unittest.TestCase):
         :return: None
         :raises: AssertionError, Exception (if an error occurs during the test execution)
         """
-        # Llama a get_ip_hostname_dict
+        # Call get_ip_hostname_dict
         result = get_ip_hostname_dict()
 
-        # Verifica si result es un diccionario no vacío
+        # Check if the result is a non-empty dictionary.
         self.assertIsInstance(result, dict)
         self.assertTrue(len(result) > 0)
 
-        # Verifica que los valores en el diccionario sean válidos
+        # Verify that the values in the dictionary are valid
         for ip, hostname in result.items():
             self.assertIsInstance(ip, str)
             self.assertIsInstance(hostname, str)
-        # Agrega más casos de prueba según sea necesario
+        # Add more test cases as needed
 
     def test_get_values(self):
         """
@@ -54,28 +54,28 @@ class TestGPSNetRsProject(unittest.TestCase):
         :return: None
         :raises: AssertionError, Exception (if an error occurs during the test execution)
         """
-        # Llama a get_values con una IP y argumentos válidos
+        # Call get_values with a valid IP and arguments
         result = get_values("192.168.6.103", ["SystemName", "SerialNumber"])
 
-        # Verifica si result es un diccionario con datos válidos
+        # Verify if the result is a dictionary with valid data
         self.assertIsInstance(result, dict)
         self.assertIn("station.code", result)
         self.assertIn("serial.number", result)
 
-        # Verifica el manejo de errores
+        # Check error handling
         result = get_values("192.168.6.103", ["InvalidArgument"])
         self.assertIsInstance(result, dict)
-        self.assertFalse(result)  # Debería ser un diccionario vacío
-        # Agrega más casos de prueba según sea necesario
+        self.assertFalse(result)  # Should be an empty dictionary
+        # Add more test cases as needed
 
     def test_send_data_to_zabbix(self):
         """
-        This unit test, 'test_send_data_to_zabbix', evaluates the 'send_data_to_zabbix' function. This function sends valid data to
-        a Zabbix server for monitoring.
+        This unit test, 'test_send_data_to_zabbix', evaluates the 'send_data_to_zabbix' function. This function sends
+        valid data to a Zabbix server for monitoring.
 
         The test performs the following steps:
-        1. Defines valid data for sending, which includes two GPS devices, 'RIOP_GP' and 'CYRF_GP', each with 'station.code' and
-           'serial.number'.
+        1. Defines valid data for sending, which includes two GPS devices, 'RIOP_GP' and 'CYRF_GP', each with
+        'station.code' and 'serial.number'.
         2. Calls 'send_data_to_zabbix' with the Zabbix server URL 'http://192.168.1.115/zabbix' and port '10051'.
         3. Adds 'input.voltage' and 'system.temp' keys to the data for each device.
         4. Verifies if the data is successfully sent to Zabbix.
@@ -86,22 +86,22 @@ class TestGPSNetRsProject(unittest.TestCase):
         :return: None
         :raises: AssertionError, Exception (if an error occurs during the test execution)
         """
-        # Define datos válidos para enviar
+        # Define valid data to send
         all_data = {
             "RIOP_GP": {"station.code": "RIOP", "serial.number": "4927175199"},
             "CYRF_GP": {"station.code": "CYRF", "serial.number": "4805144946"},
         }
 
-        # Llama a send_data_to_zabbix y verifica si se envían los datos
+        # Call send_data_to_zabbix and verify if the data is sent
         zabbix_server = "http://192.168.1.115/zabbix"
         zabbix_port = 10051
-        # Agrega claves "input.voltage" y "system.temp" a los datos
+        # Add "input.voltage" and "system.temp" keys to the data
         all_data["RIOP_GP"]["input.voltage"] = "5.0"
         all_data["RIOP_GP"]["system.temp"] = "5.0"
         all_data["CYRF_GP"]["input.voltage"] = "4.8"
         all_data["CYRF_GP"]["system.temp"] = "6.5"
         send_data_to_zabbix(zabbix_server, zabbix_port, all_data)
-        # Agrega más casos de prueba según sea necesario
+        # Add more test cases as needed
 
 
 if __name__ == '__main__':

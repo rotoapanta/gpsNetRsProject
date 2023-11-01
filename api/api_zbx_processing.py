@@ -7,22 +7,22 @@ import os
 from utils import utilities
 import datetime
 
-# Obtiene la fecha actual en el formato deseado (Año-Mes-Día)
+# Get the current date in the desired format (Year-Month-Day)
 current_date = datetime.date.today().strftime("%Y-%m-%d")
-# Obtiene la ruta completa al archivo de registro 'error.log' en la carpeta 'logs'
+# Get the full path to the '_gps_netrs.log' file in the 'logs' folder
 logs_folder = 'logs'
 if not os.path.exists(logs_folder):
     os.makedirs(logs_folder)
 
-# Nombre del archivo de registro con fecha
+# File name of the log file with the date
 log_file = os.path.join(logs_folder, f'{current_date}_gps_netrs.log')
-# Configura el sistema de registro de errores
+# Configure the error logging system
 logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %('
                                                                    'message)s')
 logger = logging.getLogger(__name__)
 
 
-# Función para obtener el diccionario IP - Hostname
+# Function to obtain the IP - Hostname dictionary
 def get_ip_hostname_dict():
     """
     The 'get_ip_hostname_dict' function retrieves a dictionary that maps IP addresses to hostnames for GPS NetRS devices.
@@ -45,10 +45,10 @@ def get_ip_hostname_dict():
     zabbix_user = config.get('zabbix', 'zabbix_user')
     zabbix_password = config.get('zabbix', 'zabbix_password')
     try:
-        # Configura la conexión a tu servidor Zabbix
+        # Configure the connection to your Zabbix server
         zapi = ZabbixAPI(url=zabbix_url, user=zabbix_user, password=zabbix_password)
 
-        # Encuentra el template por nombre
+        # Find the template by name
         template_name = "Template GPS Trimble NetRS"
         template = zapi.template.get(filter={"host": template_name})
 
@@ -58,10 +58,10 @@ def get_ip_hostname_dict():
             logger.error(f"No se encontró el template '{template_name}'")
         else:
             template_id = template[0]["templateid"]
-            # Encuentra los hosts asociados al template
+            # Find the hosts associated with the template
             hosts = zapi.host.get(templateids=[template_id], selectInterfaces=["ip", "host"])
 
-            # Recopila las direcciones IP de los hosts y verifica su conectividad
+            # Collect the IP addresses of the hosts and check their connectivity
             for host in hosts:
                 for interface in host["interfaces"]:
                     ip = interface["ip"]
@@ -70,7 +70,7 @@ def get_ip_hostname_dict():
                         hostname = host["host"]
                         ip_hostname_dict[ip] = hostname
 
-        # Cierra la sesión
+        # Close the session
         zapi.user.logout()
         return ip_hostname_dict
     except Exception as e:
@@ -78,7 +78,6 @@ def get_ip_hostname_dict():
         return {}
 
 
-# Función para obtener valores de un host
 def get_values(ip, arguments):
     """
     The 'get_values' function retrieves specific metrics from a GPS NetRS device by making HTTP requests.
@@ -103,7 +102,7 @@ def get_values(ip, arguments):
     :raises: Exception if any errors occur during the HTTP request, data processing, or value retrieval.
     """
 
-    results = {}  # Define 'results' antes del bloque 'try'
+    results = {}  # Define 'results' before the 'try' block
     try:
         url_base = f'http://{ip}/prog/Show?'
         config = configparser.ConfigParser()
@@ -111,7 +110,7 @@ def get_values(ip, arguments):
         username = config.get('digitizer_credentials', 'username')
         password = config.get('digitizer_credentials', 'password')
         auth = (username, password)
-        results = {}  # Diccionario para almacenar los resultados
+        results = {}  # Dictionary to store the results
 
         for argument in arguments:
             full_url = f"{url_base}{argument}"

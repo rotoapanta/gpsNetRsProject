@@ -14,7 +14,7 @@ setup(
     url="https://github.com/rotoapanta/gpsNetRsProject.git",
     packages=find_packages(),
     install_requires=[
-        "py-zabbix==1.1.7",  # Lista tus dependencias aquí
+        "py-zabbix==1.1.7",  # List your dependencies here
         "requests~=2.31.0",
         "brotlipy==0.7.0",
         "setuptools~=68.0.0"

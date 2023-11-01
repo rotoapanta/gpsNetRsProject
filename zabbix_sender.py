@@ -3,21 +3,21 @@ import os
 from pyzabbix import ZabbixMetric, ZabbixSender
 import datetime
 
-# Obtiene la fecha actual en el formato deseado (Año-Mes-Día)
+# Get the current date in the desired format (Year-Month-Day)
 current_date = datetime.date.today().strftime("%Y-%m-%d")
-# Obtiene la ruta completa al archivo de registro 'error.log' en la carpeta 'logs'
+# Get the full path to the '_gps_netrs.log' file in the 'logs' folder
 logs_folder = 'logs'
 if not os.path.exists(logs_folder):
     os.makedirs(logs_folder)
-# Nombre del archivo de registro con fecha
+
+# File name of the log file with the date
 log_file = os.path.join(logs_folder, f'{current_date}_gps_netrs.log')
-# Configura el sistema de registro de errores
+# Configure the error logging system
 logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %('
                                                                    'message)s')
 logger = logging.getLogger(__name__)
 
 
-# Enviar las métricas a Zabbix
 def send_data_to_zabbix(zabbix_server, zabbix_port, all_data):
     """
     The 'send_data_to_zabbix' function sends collected data to a Zabbix server. It performs the following tasks:
@@ -37,20 +37,20 @@ def send_data_to_zabbix(zabbix_server, zabbix_port, all_data):
     metrics = []
 
     for host, data in all_data.items():
-        # Obtener los valores para esta estación
+        # Obtain the values for this station
         station_code = data['station.code']
         serial_number = data['serial.number']
         input_voltage = data['input.voltage']
         system_temp = data['system.temp']
 
-        # Crear métricas para cada valor
+        # Create metrics for each value
         metrics.append(ZabbixMetric(host, 'station.code', station_code))
         metrics.append(ZabbixMetric(host, 'serial.number', serial_number))
         metrics.append(ZabbixMetric(host, 'input.voltage', input_voltage))
         metrics.append(ZabbixMetric(host, 'system.temp', system_temp))
 
     try:
-        # Crear un objeto ZabbixSender y enviar los datos a Zabbix
+        # Create a ZabbixSender object and send the data to Zabbix
         zabbix_sender = ZabbixSender(zabbix_server=zabbix_server, zabbix_port=zabbix_port)
         result = zabbix_sender.send(metrics)
         logging.info(f"Datos enviados a Zabbix: {result}")
