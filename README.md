@@ -17,7 +17,11 @@
 [![Telegram](https://img.shields.io/badge/Telegram-Bot-blue)](https://core.telegram.org/bots)
 [![Python](https://img.shields.io/badge/Python-3.11-brightgreen)](https://www.python.org/)
 [![Docker](https://img.shields.io/badge/Docker-No-brightgreen)](https://www.docker.com/)
-- 
+[![Author 1](https://img.shields.io/badge/Roberto%20-Toapanta-brightgreen)](link_to_author1)
+[![License](https://img.shields.io/badge/License-MIT-brightgreen)](link_to_license) 
+- [![GitHub](https://img.shields.io/badge/GitHub-Project-brightgreen)](link_to_github)
+- [![Documentation](https://img.shields.io/badge/Documentation-Read%20Now-blue)](link_to_docs)
+
 # Contents
 
 - [Getting started](#getting-started)
@@ -70,6 +74,29 @@ Before you get started, make sure you have the following:
 - The project consists of the following components:
   - [Component 1](link_to_component_1) - A short description.
   - [Component 2](link_to_component_2) - A short description.
+
+- gpsNetRsProject/
+  - api/
+    - __init__.py
+    - api_zbx_processing.py
+    - logs/
+      - __init__.py
+      - 2023-10-31_gps_netrs.log
+      - gps_netrs.log
+    - templates/
+      - zbx_export_templates.xml
+    - test/
+      - __init__.py
+      - test_gps_netrs_project.py
+    - utils/
+      - __init__.py
+      - utilities.py
+  - config.ini          # Archivo de configuración con detalles del proyecto
+  - main.py
+  - requirements.txt
+  - run_gps_netrs.sh
+  - setup.py
+  - zabbix_sender.py
 
 ## Installation
 
@@ -136,23 +163,27 @@ The script will now run automatically at the specified intervals and log its out
 
 ## Feedback
 
-### Support
+If you have any feedback, please reach out to us at robertocarlos.toapanta@gmail.com
 
-- If you need support, please contact us at [support@example.com](mailto:support@example.com).
+## Support
 
-### License
+For support, email robertocarlos.toapanta@gmail.com or join our Discord channel.
 
-- This project is licensed under the [![License](https://img.shields.io/badge/License-MIT-brightgreen)](link_to_license) license.
+## License
 
-## Authors
+[GPL v2](https://www.gnu.org/licenses/gpl-2.0)
 
-- [![Author 1](https://img.shields.io/badge/Roberto%20-Toapanta-brightgreen)](link_to_author1)
+## Autors
+
+- [@rotoapanta](https://github.com/rotoapanta)
 
 ## More Info
 
-- For more information, visit our [website](link_to_website).
+* [Official documentation for py-zabbix](https://py-zabbix.readthedocs.io/en/latest/)
+* [Install py-zabbix 1.1.7](https://pypi.org/project/pyzabbix/)
 
 ## Links
 
-- [![GitHub](https://img.shields.io/badge/GitHub-Project-brightgreen)](link_to_github)
-- [![Documentation](https://img.shields.io/badge/Documentation-Read%20Now-blue)](link_to_docs)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/roberto-carlos-toapanta-g/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/rotoapanta)
+
