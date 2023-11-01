@@ -4,24 +4,24 @@
 
 ##
 
-![Python 3.10](https://img.shields.io/badge/Python-3.10-blue.svg)
+[![Python](https://img.shields.io/badge/Python-3.11-brightgreen)](https://www.python.org/)
+[![Zabbix](https://img.shields.io/badge/Zabbix-4.6-orange)](https://www.zabbix.com/)
 [![GitHub issues](https://img.shields.io/github/issues/rotoapanta/botZabbixPackage)](https://github.com/rotoapanta/botZabbixPackage/issues)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rotoapanta/botZabbixPackage)
 ![GitHub last commit](https://img.shields.io/github/last-commit/rotoapanta/botZabbixPackage)
 ![GitHub commit merge status](https://img.shields.io/github/commit-status/rotoapanta/botZabbixPackage/master/d8b7bfe)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
+[![License](https://img.shields.io/badge/License-MIT-brightgreen)](link_to_license) 
 ![Discord](https://img.shields.io/discord/996422496842694726)
 [![Discord Invite](https://img.shields.io/badge/discord-join%20now-green)](https://discord.gg/Gs9b3HFd)
-![GitHub forks](https://img.shields.io/github/forks/rotoapanta/botZabbixPackage?style=social)
-[![Zabbix](https://img.shields.io/badge/Zabbix-4.6-orange)](https://www.zabbix.com/)
-[![Telegram](https://img.shields.io/badge/Telegram-Bot-blue)](https://core.telegram.org/bots)
-[![Python](https://img.shields.io/badge/Python-3.11-brightgreen)](https://www.python.org/)
 [![Docker](https://img.shields.io/badge/Docker-No-brightgreen)](https://www.docker.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-Project-brightgreen)](https://github.com/rotoapanta/gpsNetRsProject.git)
+[![Linux](https://img.shields.io/badge/Linux-Supported-brightgreen)](https://www.linux.org/)
+[![Windows](https://img.shields.io/badge/Windows-Supported-brightgreen)](https://www.microsoft.com/)
+[![Crontab](https://img.shields.io/badge/Crontab-Supported-brightgreen)](#installation)
 [![Author 1](https://img.shields.io/badge/Roberto%20-Toapanta-brightgreen)](link_to_author1)
-[![License](https://img.shields.io/badge/License-MIT-brightgreen)](link_to_license) 
-- [![GitHub](https://img.shields.io/badge/GitHub-Project-brightgreen)](link_to_github)
-- [![Documentation](https://img.shields.io/badge/Documentation-Read%20Now-blue)](link_to_docs)
-
+[![Version](https://img.shields.io/badge/Version-1.4-brightgreen)](link_to_changelog)
+![GitHub forks](https://img.shields.io/github/forks/rotoapanta/botZabbixPackage?style=social)
 # Contents
 
 - [Getting started](#getting-started)
@@ -71,9 +71,7 @@ Before you get started, make sure you have the following:
 
 ### Components Description
 
-- The project consists of the following components:
-  - [Component 1](link_to_component_1) - A short description.
-  - [Component 2](link_to_component_2) - A short description.
+The project consists of the following components:
 
 - gpsNetRsProject/
   - api/
@@ -81,7 +79,7 @@ Before you get started, make sure you have the following:
     - api_zbx_processing.py
     - logs/
       - __init__.py
-      - 2023-10-31_gps_netrs.log
+      - aaaa-mm-dd_gps_netrs.log
       - gps_netrs.log
     - templates/
       - zbx_export_templates.xml
@@ -91,12 +89,33 @@ Before you get started, make sure you have the following:
     - utils/
       - __init__.py
       - utilities.py
-  - config.ini          # Archivo de configuración con detalles del proyecto
+  - config.ini
   - main.py
   - requirements.txt
   - run_gps_netrs.sh
   - setup.py
   - zabbix_sender.py
+
+- `api/`: This package contains modules related to the project's API functionality.
+  - `init.py`: An empty file that marks the directory as a Python package. 
+  - `api_zbx_processing.py`: Module for processing Zabbix data through the API.
+- `logs/`: Directory for storing log files.
+  - `init.py`: An empty file that marks the directory as a Python package.
+  - `aaaa-mm-dd_gps_netrs.log`: File is a project log that records events and errors.
+  - `gps_netrs_crontab.log`: Log file that captures the execution details of the project's scheduled tasks.
+- `templates/`: Directory for Zabbix templates.
+- `test/`: Package for unit tests.
+  - `init.py`: An empty file that marks the directory as a Python package.
+  - `test_gps_netrs_project.py`: File contains unit tests for the GPS NetRS Project.
+- `utils/`: Package for utility functions.
+  - `init.py`: An empty file that marks the directory as a Python package.
+  - `utilities.py`: Script containing reusable functions that provide common functionality for the project.
+- `config.ini`: Project configuration file with project-specific details.
+- `main.py`: The main script of the project, which likely contains the core logic.
+- `requirements.txt`: A list of project dependencies, typically used for package management.
+- `run_gps_netrs.sh`: A shell script for executing the project.
+- `setup.py`: A script used for packaging and distribution of the project.
+- `zabbix_sender.py`: A script responsible for sending data to Zabbix.
 
 ## Installation
 
@@ -105,19 +124,54 @@ Before you get started, make sure you have the following:
   ```bash
    git clone https://github.com/rotoapanta/gpsNetRsProject.git
   ```
-2. To automate the monitoring process, you can use crontab to schedule the execution of the script at specific intervals. The provided run_gps_netrs.sh shell script helps you set up the environment and run the project under cron. 
+2. Configure the project by editing the `config.ini` file.
+
+## Configuration
+
+1. Open the config.ini file in the project directory.
+
+2. Configure the Zabbix credentials:
+   - Set the `Zabbix URL` in the url field.
+   - Enter your `Zabbix username` in the zabbix_user field.
+   - Provide your `Zabbix password` in the zabbix_password field.
+   - Enter your `Zabbix server` in the zabbix_server field.
+   - Enter your `Zabbix port` in the zabbix_port field.
+
+3. Configure the Digitizer credentials:
+   - Set your username and password field under the `[digitizer_credentials]` section.
+
+## Running the Application
+
+The run_gps_netrs.sh shell script is used to set up the environment, activate the Conda environment, install dependencies, and execute the main project script. The script is responsible for the following tasks:
+
+- Setting environment variables.
+- Activating the Conda environment.
+- Installing project dependencies.
+- Validating the existence of directories and files.
+- Navigating to the project directory.
+- Running the main project script (main.py).
+
+Please review the script's comments for details about its operation and make sure it points to the correct paths for your specific environment.
+
+  ```plaintext
+  Note: Ensure that the script has the necessary permissions to execute.
+  ```
+
+## Running the Project Automatically with Crontab
+
+To automate the monitoring process, you can use crontab to schedule the execution of the script at specific intervals. The provided run_gps_netrs.sh shell script helps you set up the environment and run the project under cron. 
 
 Here's how to configure and use crontab with the project:
 
-  a. Open the crontab configuration for your user by running the following command
+1. Open the crontab configuration for your user by running the following command
 
   ```bash
    crontab -e
   ```
- b. Add an entry to schedule the script to run at regular intervals. For example, to run the script every 10 minutes, add the following line:
+2. Add an entry to schedule the script to run at regular intervals. For example, to run the script every 10 minutes, add the following line:
   
   ```bash
-   */10 * * * * bash /path/to/run_gps_netrs.sh >> /path/to/logs/gps_netrs.log 2>&1
+   */10 * * * * bash /path/to/run_gps_netrs.sh >> /path/to/logs/gps_netrs_crontab.log 2>&1
   ```
 Be sure to replace /path/to with the actual paths to the run_gps_netrs.sh script and the desired log file.
 
@@ -125,41 +179,41 @@ Save and exit the crontab editor.
 
 The script will now run automatically at the specified intervals and log its output to the specified log file.
 
-## Configuration
-
-- Describe how to configure your project, including any settings or environment variables.
-- [![Linux](https://img.shields.io/badge/Linux-Supported-brightgreen)](https://www.linux.org/)
-- [![Windows](https://img.shields.io/badge/Windows-Supported-brightgreen)](https://www.microsoft.com/)
-
-## Running the Application
-
-- Explain how to run your application.
-- [![Docker](https://img.shields.io/badge/Docker-Yes-brightgreen)](https://www.docker.com/)
-
-## Running the Project Automatically with Crontab
-
-- Describe how to set up scheduled tasks using Crontab or similar tools.
-- [![Crontab](https://img.shields.io/badge/Crontab-Supported-brightgreen)](link_to_crontab)
-
 ## Environment Variables
 
-- Document the available environment variables and their purposes.
-- [![Env Vars](https://img.shields.io/badge/Environment-Variables-blue)](link_to_env_vars)
+Before running the project, make sure to set the following environment variables:
+
+- `zabbix_url` = http://your-zabbix-server/zabbix
+- `zabbix_user` = your-zabbix-username
+- `zabbix_password` = your-zabbix-password
+- `username` = your-username
+- `password` = your-password
 
 ## Change Log
 
-- Document the changes made in each version of your project.
-- [![Version](https://img.shields.io/badge/Version-1.0-brightgreen)](link_to_changelog)
+* Revision: 1.4 - Refactor code
+* Revision: 1.3 - Add test unit
+* Revision: 1.2 - Add run_gps_netrs.sh
+* Revision: 1.1 - Code cleaned.
+* Revision: 1.0 - Initial commit
 
 ## Running Tests
 
 - Provide instructions for running tests.
 - [![Testing](https://img.shields.io/badge/Testing-Yes-brightgreen)](link_to_tests)
 
+![img.png](img.png)
+![img_4.png](img_4.png)
+![img_3.png](img_3.png)
+
 ## Usage/Examples
 
-- Provide examples of how to use your project.
-- [![Example](https://img.shields.io/badge/Example-Yes-brightgreen)](link_to_examples)
+To run the project manually, execute the following command:
+
+  ```bash
+   python main.py
+  ```
+For scheduling and automation, refer to the Scheduling with crontab section.
 
 ## Feedback
 
