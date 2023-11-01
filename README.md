@@ -9,7 +9,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/rotoapanta/gpsNetRsProject/issues)](https://github.com/rotoapanta/gpsNetRsProject/issues)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rotoapanta/gpsNetRsProject)
 ![GitHub last commit](https://img.shields.io/github/last-commit/rotoapanta/gpsNetRsProject)
-![GitHub commit merge status](https://img.shields.io/github/commit-status/rotoapanta/gpsNetRsProject/master/7139c4b4d4c992fc9db6062b64a1e48cfca2c726)
+![GitHub commit merge status](https://img.shields.io/github/commit-status/rotoapanta/gpsNetRsProject/master/d1e8036)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
 [![License](https://img.shields.io/badge/License-MIT-brightgreen)](link_to_license) 
 ![Discord](https://img.shields.io/discord/996422496842694726)
