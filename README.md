@@ -19,9 +19,10 @@
 [![Linux](https://img.shields.io/badge/Linux-Supported-brightgreen)](https://www.linux.org/)
 [![Windows](https://img.shields.io/badge/Windows-Supported-brightgreen)](https://www.microsoft.com/)
 [![Crontab](https://img.shields.io/badge/Crontab-Supported-brightgreen)](#installation)
-[![Author 1](https://img.shields.io/badge/Roberto%20-Toapanta-brightgreen)](link_to_author1)
-[![Version](https://img.shields.io/badge/Version-1.4-brightgreen)](link_to_changelog)
-![GitHub forks](https://img.shields.io/github/forks/rotoapanta/botZabbixPackage?style=social)
+[![Testing](https://img.shields.io/badge/Testing-Yes-brightgreen)](link_to_tests)
+[![Author 1](https://img.shields.io/badge/Roberto%20-Toapanta-brightgreen)](https://www.linkedin.com/in/roberto-carlos-toapanta-g/)
+[![Version](https://img.shields.io/badge/Version-1.4-brightgreen)](#change-log)
+![GitHub forks](https://img.shields.io/github/forks/rotoapanta/gpsNetRsProject?style=social)
 # Contents
 
 - [Getting started](#getting-started)
@@ -200,11 +201,11 @@ Before running the project, make sure to set the following environment variables
 ## Running Tests
 
 - Provide instructions for running tests.
-- [![Testing](https://img.shields.io/badge/Testing-Yes-brightgreen)](link_to_tests)
 
-![img.png](img.png)
-![img_4.png](img_4.png)
-![img_3.png](img_3.png)
+
+![img.png](images/img.png)
+![img_4.png](images/img_4.png)
+![img_3.png](images/img_3.png)
 
 ## Usage/Examples
 
