@@ -25,8 +25,19 @@ logger = logging.getLogger(__name__)
 # Función para obtener el diccionario IP - Hostname
 def get_ip_hostname_dict():
     """
+    The 'get_ip_hostname_dict' function retrieves a dictionary that maps IP addresses to hostnames for GPS NetRS devices.
+    It performs the following tasks:
+    1. Reads Zabbix server configuration from 'config.ini'.
+    2. Establishes a connection to the Zabbix server using the provided credentials.
+    3. Searches for a specific Zabbix template by name ('Template GPS Trimble NetRS').
+    4. Retrieves the hosts associated with the found template.
+    5. Collects IP addresses of the hosts and verifies their connectivity.
+    6. If a host is reachable, adds an entry to the IP - Hostname dictionary.
+    7. Closes the Zabbix API session upon completion.
 
-    :return:
+    :param None
+    :returns: A dictionary that maps IP addresses to hostnames for GPS NetRS devices.
+    :raises: Exception if an error occurs during Zabbix server communication or host connectivity checks.
     """
     config = configparser.ConfigParser()
     config.read('config.ini')
@@ -69,6 +80,29 @@ def get_ip_hostname_dict():
 
 # Función para obtener valores de un host
 def get_values(ip, arguments):
+    """
+    The 'get_values' function retrieves specific metrics from a GPS NetRS device by making HTTP requests.
+    It takes the IP address of the device and a list of requested arguments as parameters.
+
+    The function performs the following steps:
+    1. Constructs the base URL for device-specific data retrieval.
+    2. Reads Zabbix server credentials from 'config.ini'.
+    3. Iterates through the provided arguments, constructing specific URLs for data retrieval.
+    4. Sends HTTP requests with authentication to the device and extracts the response data.
+    5. Parses the response text using regular expressions to extract metric values.
+    6. Populates a dictionary with metric values, including 'station.code', 'serial.number', 'input.voltage', and 'system.temp'.
+    7. Logs any errors that occur during request execution or data processing.
+    8. Returns the dictionary of metric values.
+
+    :param ip: The IP address of the GPS NetRS device.
+    :type ip: str
+    :param arguments: A list of metric arguments to retrieve from the device.
+    :type arguments: list
+    :returns: A dictionary containing the retrieved metric values.
+    :rtype: dict
+    :raises: Exception if any errors occur during the HTTP request, data processing, or value retrieval.
+    """
+
     results = {}  # Define 'results' antes del bloque 'try'
     try:
         url_base = f'http://{ip}/prog/Show?'

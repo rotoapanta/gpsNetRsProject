@@ -19,6 +19,21 @@ logger = logging.getLogger(__name__)
 
 # Enviar las métricas a Zabbix
 def send_data_to_zabbix(zabbix_server, zabbix_port, all_data):
+    """
+    The 'send_data_to_zabbix' function sends collected data to a Zabbix server. It performs the following tasks:
+    1. Constructs Zabbix metrics for the provided data.
+    2. Attempts to send the metrics to the specified Zabbix server.
+    3. Logs success or error messages.
+
+    :param zabbix_server: The URL or IP address of the Zabbix server.
+    :type zabbix_server: str
+    :param zabbix_port: The port number used for communication with the Zabbix server.
+    :type zabbix_port: int
+    :param all_data: A dictionary containing the collected data for different hosts.
+    :type all_data: dict
+    :returns: None
+    :raises: Exception (if any error occurs during the data sending process)
+    """
     metrics = []
 
     for host, data in all_data.items():

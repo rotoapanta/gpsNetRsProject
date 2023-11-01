@@ -7,6 +7,24 @@ import datetime
 
 
 def main():
+    """
+    The 'main' function serves as the entry point of the GPS NetRS monitoring program. It performs the following tasks:
+    1. Obtains the current date in the desired format (Year-Month-Day).
+    2. Configures the error logging system and creates log files.
+    3. Calls the 'get_ip_hostname_dict' function to retrieve the IP - Hostname dictionary.
+    4. Defines a list of common arguments as strings.
+    5. Creates a dictionary to store data for each host.
+    6. Iterates through the IP - Hostname dictionary, calling 'get_values' function for each host and collecting data.
+    7. Reads Zabbix configuration from 'config.ini'.
+    8. Sends collected data to Zabbix using the 'send_data_to_zabbix' function.
+    9. Logs errors and completion messages.
+
+    This function does not accept any parameters.
+
+    :returns: None
+    :raises: subprocess.CalledProcessError (if command execution fails), Exception (if any other error occurs during
+    execution)
+    """
     # Obtiene la fecha actual en el formato deseado (Año-Mes-Día)
     fecha_actual = datetime.date.today().strftime("%Y-%m-%d")
     # Obtiene la ruta completa al archivo de registro 'error.log' en la carpeta 'logs'
