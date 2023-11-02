@@ -1,6 +1,2 @@
 # Ignorar el archivo de configuración
 config.ini
-
-# Ignorar otros archivos o directorios si es necesario
-otro-archivo-secreto.ini
-directorio-secreto/
