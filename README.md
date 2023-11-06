@@ -10,8 +10,6 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/rotoapanta/gpsNetRsProject)
 ![GitHub last commit](https://img.shields.io/github/last-commit/rotoapanta/gpsNetRsProject)
 ![GitHub commit merge status](https://img.shields.io/github/commit-status/rotoapanta/gpsNetRsProject/master/d1e8036)
-[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
-[![License](https://img.shields.io/badge/License-MIT-brightgreen)](link_to_license) 
 ![Discord](https://img.shields.io/discord/996422496842694726)
 [![Discord Invite](https://img.shields.io/badge/discord-join%20now-green)](https://discord.gg/Gs9b3HFd)
 [![Docker](https://img.shields.io/badge/Docker-No-brightgreen)](https://www.docker.com/)
@@ -23,6 +21,8 @@
 [![Author 1](https://img.shields.io/badge/Roberto%20-Toapanta-brightgreen)](https://www.linkedin.com/in/roberto-carlos-toapanta-g/)
 [![Version](https://img.shields.io/badge/Version-1.4-brightgreen)](#change-log)
 ![GitHub forks](https://img.shields.io/github/forks/rotoapanta/gpsNetRsProject?style=social)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
+[![License](https://img.shields.io/badge/License-MIT-brightgreen)](link_to_license) 
 # Contents
 
 - [Getting started](#getting-started)
