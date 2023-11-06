@@ -10,7 +10,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/rotoapanta/gpsNetRsProject)
 ![GitHub last commit](https://img.shields.io/github/last-commit/rotoapanta/gpsNetRsProject)
 ![GitHub commit merge status](https://img.shields.io/github/commit-status/rotoapanta/gpsNetRsProject/master/d1e8036)
-![Discord](https://img.shields.io/discord/996422496842694726)
+![Discord](https://img.shields.io/discord/1104588661321908335)
 [![Discord Invite](https://img.shields.io/badge/discord-join%20now-green)](https://discord.gg/bf6rWDbJ)
 [![Docker](https://img.shields.io/badge/Docker-No-brightgreen)](https://www.docker.com/)
 [![GitHub](https://img.shields.io/badge/GitHub-Project-brightgreen)](https://github.com/rotoapanta/gpsNetRsProject.git)
