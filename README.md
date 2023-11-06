@@ -17,12 +17,10 @@
 [![Linux](https://img.shields.io/badge/Linux-Supported-brightgreen)](https://www.linux.org/)
 [![Windows](https://img.shields.io/badge/Windows-Supported-brightgreen)](https://www.microsoft.com/)
 [![Crontab](https://img.shields.io/badge/Crontab-Supported-brightgreen)](#installation)
-[![Testing](https://img.shields.io/badge/Testing-Yes-brightgreen)](link_to_tests)
 [![Author 1](https://img.shields.io/badge/Roberto%20-Toapanta-brightgreen)](https://www.linkedin.com/in/roberto-carlos-toapanta-g/)
 [![Version](https://img.shields.io/badge/Version-1.4-brightgreen)](#change-log)
 ![GitHub forks](https://img.shields.io/github/forks/rotoapanta/gpsNetRsProject?style=social)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
-[![License](https://img.shields.io/badge/License-MIT-brightgreen)](link_to_license) 
 # Contents
 
 - [Getting started](#getting-started)
