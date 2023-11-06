@@ -1,6 +1,3 @@
-# Debes estar en el directorio raíz gpsNetRsProject y ejecutar el comando de prueba de la siguiente manera:
-# (gps_netrs_env) rotoapanta@pc-linux:~/Documentos/Proyects/gpsNetRsProject$ python -m unittest tests.test_gps_netrs_project
-
 import unittest
 from api.api_zbx_processing import get_ip_hostname_dict, get_values
 from zabbix_sender import send_data_to_zabbix

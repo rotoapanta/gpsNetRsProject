@@ -107,8 +107,8 @@ def get_values(ip, arguments):
         url_base = f'http://{ip}/prog/Show?'
         config = configparser.ConfigParser()
         config.read('config.ini')
-        username = config.get('digitizer_credentials', 'username')
-        password = config.get('digitizer_credentials', 'password')
+        username = config.get('digitizer_credentials', 'digitizer_username')
+        password = config.get('digitizer_credentials', 'digitizer_password')
         auth = (username, password)
         results = {}  # Dictionary to store the results
 

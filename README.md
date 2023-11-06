@@ -206,11 +206,34 @@ Before running the project, make sure to set the following environment variables
 
 ## Running Tests
 
-- Provide instructions for running tests.
+To run the tests for this project, you have two options:
 
-![img.png](images/img.png)
-![img_4.png](images/img_4.png)
-![img_3.png](images/img_3.png)
+### Option 1: Using Test Discovery
+
+You can use Python's built-in test discovery to automatically discover and run all tests that follow the naming convention `test_*.py`. Navigate to your project directory and execute the following command:
+
+```bash
+python -m unittest discover -s tests -p 'test_*.py'
+```
+This command will search for and execute all tests within the tests directory and its subdirectories.
+
+If you want to run specific test modules or individual tests, you can use the following command. Replace tests.test_module with the appropriate test module you want to run:
+
+```bash
+python -m unittest tests.test_gps_netrs_project
+```
+This command allows you to execute tests from a particular test module. Adjust test_module to the desired module name.
+
+![Testing](img.png)
+
+![Data collected](images/img.png)
+Figure 1. Data collected on the Zabbix Server
+
+![Digitizer input voltage](images/img_4.png)
+Figure 2. Digitizer input voltage
+
+![Digitizer temperature](images/img_3.png)
+Figure 3. Digitizer temperature
 
 ## Usage
 
