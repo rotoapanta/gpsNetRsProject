@@ -226,7 +226,7 @@ python -m unittest tests.test_gps_netrs_project
 ```
 This command allows you to execute tests from a particular test module. Adjust test_module to the desired module name.
 
-![Testing](img.png)
+![Testing](images/img_1.png)
 
 ![Data collected](images/img.png)
 Figure 1. Data collected on the Zabbix Server
