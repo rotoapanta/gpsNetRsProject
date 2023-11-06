@@ -37,10 +37,10 @@
 - [Environment Variables](#environment-variables)
 - [Change Log](#change-log)
 - [Running Tests](#running-tests)
-- [Usage/Examples](#usage-examples)
+- [Usage](#usage)
 - [Feedback](#feedback)
-  - [Support](#support)
-  - [License](#license)
+- [Support](#support)
+- [License](#license)
 - [Authors](#authors)
 - [More Info](#more-info)
 - [Links](#links)
@@ -215,7 +215,7 @@ Before running the project, make sure to set the following environment variables
 ![img_4.png](images/img_4.png)
 ![img_3.png](images/img_3.png)
 
-## Usage/Examples
+## Usage
 
 To run the project manually, execute the following command:
 
@@ -236,7 +236,7 @@ For support, email robertocarlos.toapanta@gmail.com or join our Discord channel.
 
 [GPL v2](https://www.gnu.org/licenses/gpl-2.0)
 
-## Autors
+## Authors
 
 - [@rotoapanta](https://github.com/rotoapanta)
 
