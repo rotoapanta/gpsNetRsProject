@@ -217,6 +217,8 @@ python -m unittest discover -s tests -p 'test_*.py'
 ```
 This command will search for and execute all tests within the tests directory and its subdirectories.
 
+### Option 2: Running Specific Test Modules
+
 If you want to run specific test modules or individual tests, you can use the following command. Replace tests.test_module with the appropriate test module you want to run:
 
 ```bash
