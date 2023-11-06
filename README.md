@@ -125,22 +125,30 @@ The project consists of the following components:
   ```bash
    git clone https://github.com/rotoapanta/gpsNetRsProject.git
   ```
-2. Configure the project by editing the `config.ini` file.
+2. Create the `config.ini` in the same directory as the project and configure according to your credentials 
 
 ## Configuration
 
 1. Open the config.ini file in the project directory.
 
 2. Configure the Zabbix credentials:
-   - Set the `Zabbix URL` in the url field.
-   - Enter your `Zabbix username` in the zabbix_user field.
-   - Provide your `Zabbix password` in the zabbix_password field.
-   - Enter your `Zabbix server` in the zabbix_server field.
-   - Enter your `Zabbix port` in the zabbix_port field.
 
-3. Configure the Digitizer credentials:
-   - Set your username and password field under the `[digitizer_credentials]` section.
+```ini
+[zabbix]
+zabbix_url = ZABBIX_SERVER_URL
+zabbix_user = ZABBIX_USERNAME
+zabbix_password = ZABBIX_PASSWORD
+zabbix_server = ZABBIX_SERVER_IP_OR_HOSTNAME
+zabbix_port = ZABBIX_SERVER_PORT
+key_station_code = station.code
+key_serial_number = serial.number
+key_input_voltage = input.voltage
+key_system_temp = system.temp
 
+[digitizer_credentials]
+username = DIGITIZER_USERNAME
+password = DIGITIZER_PASSWORD
+```
 ## Running the Application
 
 The run_gps_netrs.sh shell script is used to set up the environment, activate the Conda environment, install dependencies, and execute the main project script. The script is responsible for the following tasks:
