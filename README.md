@@ -146,8 +146,8 @@ key_input_voltage = input.voltage
 key_system_temp = system.temp
 
 [digitizer_credentials]
-username = DIGITIZER_USERNAME
-password = DIGITIZER_PASSWORD
+digitizer_username = DIGITIZER_USERNAME
+digitizer_password = DIGITIZER_PASSWORD
 ```
 ## Running the Application
 
@@ -192,11 +192,11 @@ The script will now run automatically at the specified intervals and log its out
 
 Before running the project, make sure to set the following environment variables:
 
-- `zabbix_url` = http://your-zabbix-server/zabbix
-- `zabbix_user` = your-zabbix-username
-- `zabbix_password` = your-zabbix-password
-- `username` = your-username
-- `password` = your-password
+- `zabbix_url` = ZABBIX_SERVER_URL
+- `zabbix_user` = ZABBIX_USERNAME
+- `zabbix_password` = ZABBIX_PASSWORD
+- `digitizer_username` = DIGITIZER_USERNAME
+- `digitizer_password` = DIGITIZER_PASSWORD
 
 ## Change Log
 
@@ -209,7 +209,6 @@ Before running the project, make sure to set the following environment variables
 ## Running Tests
 
 - Provide instructions for running tests.
-
 
 ![img.png](images/img.png)
 ![img_4.png](images/img_4.png)
