@@ -227,15 +227,16 @@ python -m unittest tests.test_gps_netrs_project
 This command allows you to execute tests from a particular test module. Adjust test_module to the desired module name.
 
 ![Testing](images/img_1.png)
+<p align="center">Figure 1. Testing the code</p>
 
-![Data collected](images/img.png)
-Figure 1. Data collected on the Zabbix Server
+![Data collected](images/img_2.png)
+<p align="center">Figure 2. Data collected on the Zabbix Server</p>
 
-![Digitizer input voltage](images/img_4.png)
-Figure 2. Digitizer input voltage
+![Digitizer input voltage](images/img_3.png)
+<p align="center">Figure 3. Digitizer input voltage</p>
 
-![Digitizer temperature](images/img_3.png)
-Figure 3. Digitizer temperature
+![Digitizer temperature](images/img_4.png)
+<p align="center">Figure 4. Digitizer temperature</p>
 
 ## Usage
 
