@@ -120,11 +120,11 @@ The project consists of the following components:
 ## Installation
 
 1. Clone the repository to your local machine:
-
+  
   ```bash
    git clone https://github.com/rotoapanta/gpsNetRsProject.git
   ```
-2. Create the `config.ini` in the same directory as the project and configure according to your credentials 
+2.Create the `config.ini` in the same directory as the project and configure according to your credentials 
 
 ## Configuration
 
