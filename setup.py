@@ -8,8 +8,9 @@ setup(
     version="1.0.0",
     author='Roberto Toapanta',
     author_email='robertocarlos.toapanta@gmail.com',
-    description="Proyecto para monitorear el estado de salud de los receptores GPS NetRS",
-    long_description='Obtiene los valores de voltaje, temperatura, numero de serie',
+    description="Project for monitoring the health status of GPS NetRS receivers",
+    long_description="Retrieves voltage, temperature, and serial number values from the devices for comprehensive "
+                     "monitoring.",
     long_description_content_type="text/markdown",
     url="https://github.com/rotoapanta/gpsNetRsProject.git",
     packages=find_packages(),
