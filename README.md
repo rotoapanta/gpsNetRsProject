@@ -110,6 +110,8 @@ The project consists of the following components:
 - `utils/`: Package for utility functions.
   - `init.py`: An empty file that marks the directory as a Python package.
   - `utilities.py`: Script containing reusable functions that provide common functionality for the project.
+- `zabbix/`: Package for Zabbix Integration.
+  - `zabbix_sender.py`: A script for sending data to Zabbix
 - `config.ini`: Project configuration file with project-specific details.
 - `main.py`: The main script of the project, which likely contains the core logic.
 - `requirements.txt`: A list of project dependencies, typically used for package management.
