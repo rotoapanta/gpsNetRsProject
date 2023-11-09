@@ -1,6 +1,6 @@
 import unittest
 from api.api_zbx_processing import get_ip_hostname_dict, get_values
-from zabbix_sender import send_data_to_zabbix
+from zabbix.zabbix_sender import send_data_to_zabbix
 
 
 class TestGPSNetRsProject(unittest.TestCase):
