@@ -120,7 +120,6 @@ def get_values(ip, arguments):
                 response_text = response.text
 
                 patterns = {
-                    # "SystemName": r'name=(\w+)',
                     "SystemName": r'name=([A-Za-z0-9]+)',
                     "SerialNumber": r'sn=(\d+)',
                     "Voltage&input=2": r'volts=([\d.]+)',
