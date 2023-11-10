@@ -2,7 +2,6 @@
 
 # Define variables
 ENV_NAME="gps_netrs_env"
-ENV_PATH="/home/rotoapanta/env/"
 CONDA_PREFIX="/home/rotoapanta/anaconda3/"
 SCRIPT_PATH="/home/rotoapanta/Documentos/Proyects/gpsNetRsProject/"
 PYTHON_SCRIPT="main.py"
