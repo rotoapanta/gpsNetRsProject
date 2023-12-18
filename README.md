@@ -25,7 +25,7 @@
 # Contents
 
 - [Getting started](#getting-started)
-  - [Getting started with Zabbix and Telegram](#getting-started-with-zabbix-and-telegram)
+  - [Getting started with Zabbix and GPS NetRS](#getting-started-with-zabbix-and-gps-netrs)
   - [Features](#features)
   - [Requirements](#requirements)
   - [Components Description](#components-description)
@@ -46,7 +46,7 @@
 
 ## Getting started
 
-### Getting started with Zabbix and Telegram
+### Getting started with Zabbix and GPS NetRS
 
 GPS NetRS receivers are used in various applications, including geodetic surveying, GNSS data collection, and more. Monitoring their health and performance is essential to ensure the reliability of data they provide. This project leverages Zabbix, a popular monitoring solution, to help you keep an eye on your GPS NetRS devices.
 
