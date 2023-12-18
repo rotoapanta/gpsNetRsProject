@@ -143,4 +143,5 @@ def get_values(ip, arguments):
                 logger.error(f"Error al procesar el argumento {argument} para {ip}: {e}")
     except Exception as e:
         logger.error(f"Error al obtener valores para {ip}: {e}")
+    print(results)
     return results
